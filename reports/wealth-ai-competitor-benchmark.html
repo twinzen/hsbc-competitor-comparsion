@@ -1,0 +1,933 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wealth AI Competitor Benchmark</title>
+<meta name="description" content="HSBC Wealth and Private Banking benchmark of competitor AI products and achievements, as of 23 September 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<style>
+:root{
+  --bg:#F5F7F6; --surface:#FFFFFF; --surface-2:#EEF2F1;
+  --ink:#16202A; --ink-2:#4A5662; --ink-3:#6E7A84;
+  --rule:#D9DFDE; --rule-strong:#B9C3C3;
+  --accent:#0E5B66; --accent-soft:#E2EEEE;
+  --lead:#1F7A4D; --lead-soft:#E2F2E8;
+  --parity:#8A5E00; --parity-soft:#F7EDD3;
+  --lag:#B3261E; --lag-soft:#F9E3E1;
+  --h1:#EEF3F2; --h2:#CFE3E3; --h3:#97C6C8; --h4:#4E9AA2; --h5:#0E5B66;
+  --h-ink:#16202A; --h-ink-hi:#FFFFFF;
+  --hsbc-row:#FFF8E6;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Public Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+/* Dark is the default; an explicit light choice switches it off */
+:root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E1418; --surface:#151D22; --surface-2:#1B252B;
+    --ink:#E6ECEB; --ink-2:#A9B4B7; --ink-3:#83909A;
+    --rule:#28343A; --rule-strong:#3A4850;
+    --accent:#62BAC4; --accent-soft:#16303A;
+    --lead:#63C58F; --lead-soft:#15301F;
+    --parity:#E2B34F; --parity-soft:#33290F;
+    --lag:#F2857B; --lag-soft:#3A1B19;
+    --h1:#1A2429; --h2:#1E3A40; --h3:#2A5C63; --h4:#3E8991; --h5:#6CC4CD;
+    --h-ink:#E6ECEB; --h-ink-hi:#0E1418;
+    --hsbc-row:#2A2616;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1418; --surface:#151D22; --surface-2:#1B252B;
+  --ink:#E6ECEB; --ink-2:#A9B4B7; --ink-3:#83909A;
+  --rule:#28343A; --rule-strong:#3A4850;
+  --accent:#62BAC4; --accent-soft:#16303A;
+  --lead:#63C58F; --lead-soft:#15301F;
+  --parity:#E2B34F; --parity-soft:#33290F;
+  --lag:#F2857B; --lag-soft:#3A1B19;
+  --h1:#1A2429; --h2:#1E3A40; --h3:#2A5C63; --h4:#3E8991; --h5:#6CC4CD;
+  --h-ink:#E6ECEB; --h-ink-hi:#0E1418;
+  --hsbc-row:#2A2616;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;margin:0}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px;padding-block:0 80px}
+@media (max-width:600px){.wrap{padding-inline:16px}}
+
+/* Masthead */
+.mast{border-bottom:1px solid var(--rule);padding-block:40px 28px;display:grid;gap:14px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.dek{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13px;color:var(--ink-2);margin-top:6px}
+.meta b{color:var(--ink);font-weight:600}
+.xlink{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
+.xlink:hover{background:var(--accent-soft)}
+
+/* Layout with contents rail */
+.layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:48px;margin-top:32px}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start;font-size:13px}
+.toc p{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:toc}
+.toc li a{display:block;padding:5px 10px;border-left:2px solid var(--rule);color:var(--ink-2);text-decoration:none}
+.toc li a:hover{color:var(--ink);border-left-color:var(--accent)}
+@media (max-width:960px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:24px}
+  .toc{position:static}
+  .toc ol{display:flex;flex-wrap:wrap;gap:6px}
+  .toc li a{border:1px solid var(--rule);border-radius:999px;padding:3px 10px}
+}
+
+main{min-width:0}
+section{padding-block:36px;border-bottom:1px solid var(--rule)}
+section:last-child{border-bottom:0}
+h2{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.2;margin:0 0 6px;text-wrap:balance}
+.sec-num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.06em;display:block;margin-bottom:6px}
+h3{font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.3;margin:28px 0 8px;text-wrap:balance}
+h4{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:0 0 8px}
+p{margin:0 0 12px;max-width:72ch}
+.lede{font-size:16.5px;color:var(--ink-2);max-width:68ch}
+ul.tight{margin:0;padding-left:18px;display:grid;gap:6px}
+ul.tight li{max-width:70ch}
+.muted{color:var(--ink-3)}
+.small{font-size:13px}
+.num{font-variant-numeric:tabular-nums}
+
+/* Verdict block */
+.verdict{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:22px 24px;margin:18px 0 24px}
+.verdict p{font-family:var(--serif);font-size:20px;line-height:1.45;margin:0;max-width:none}
+.tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.tri{grid-template-columns:minmax(0,1fr)}}
+.tri > div{padding:18px 18px 16px;border-radius:6px;border:1px solid var(--rule);background:var(--surface)}
+.tri h4{display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.dot.lead{background:var(--lead)} .dot.lag{background:var(--lag)} .dot.acc{background:var(--accent)}
+.tri ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:14px}
+
+/* Pills */
+.pill{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:2px 9px;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+.pill.lead{background:var(--lead-soft);color:var(--lead)}
+.pill.parity{background:var(--parity-soft);color:var(--parity)}
+.pill.lag{background:var(--lag-soft);color:var(--lag)}
+.pill.high{background:var(--lag-soft);color:var(--lag)}
+.pill.med{background:var(--parity-soft);color:var(--parity)}
+.pill.low{background:var(--surface-2);color:var(--ink-2);border-color:var(--rule)}
+.grade{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:1px 6px;border-radius:3px;border:1px solid var(--rule-strong);color:var(--ink-2);white-space:nowrap}
+.grade.v{border-color:var(--accent);color:var(--accent)}
+
+/* Tables */
+.tbl{overflow-x:auto;margin:14px 0 8px;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+thead th{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tr.hsbc td{background:var(--hsbc-row)}
+td.firm{font-weight:600;white-space:nowrap}
+td.firm small{display:block;font-weight:400;color:var(--ink-3);font-size:11.5px}
+.w-wide{min-width:760px}
+.w-xl{min-width:900px}
+caption{caption-side:bottom;text-align:left;font-size:12px;color:var(--ink-3);padding:8px 12px}
+
+/* Heatmap */
+table.heat td.s{text-align:center;font-family:var(--mono);font-weight:500;font-size:15px;width:84px;border-left:1px solid var(--surface)}
+.s1{background:var(--h1);color:var(--h-ink)}
+.s2{background:var(--h2);color:var(--h-ink)}
+.s3{background:var(--h3);color:var(--h-ink)}
+.s4{background:var(--h4);color:var(--h-ink-hi)}
+.s5{background:var(--h5);color:var(--h-ink-hi)}
+.sna{background:repeating-linear-gradient(135deg,var(--surface) 0 6px,var(--surface-2) 6px 12px);color:var(--ink-3);font-size:12px!important}
+table.heat td.note{font-size:12.5px;color:var(--ink-2);min-width:240px}
+table.heat tr.hsbc td.firm{box-shadow:inset 3px 0 0 var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12px;color:var(--ink-2);margin-top:8px}
+.legend .sw{display:inline-flex;align-items:center;gap:6px}
+.legend .sw i{width:22px;height:14px;border-radius:2px;display:inline-block;border:1px solid var(--rule)}
+
+/* Rubric */
+.rubric{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:12px 0}
+.rubric div{border:1px solid var(--rule);border-radius:4px;padding:10px;font-size:12.5px;background:var(--surface)}
+.rubric b{font-family:var(--mono);display:block;font-size:13px;margin-bottom:4px}
+@media (max-width:760px){.rubric{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Figure */
+figure{margin:16px 0;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px}
+figcaption{font-size:12.5px;color:var(--ink-3);margin-top:8px;max-width:80ch}
+.fig-scroll{overflow-x:auto}
+svg text{font-family:var(--sans)}
+
+/* Deep dive head */
+.dd-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin:30px 0 6px}
+.dd-head h3{margin:0}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 4px 4px 0;margin:12px 0;font-size:14px}
+.callout p{margin:0;max-width:none}
+
+/* Timeline grid */
+table.tl{min-width:1040px;font-size:12.5px;table-layout:fixed}
+table.tl th:first-child,table.tl td:first-child{width:120px}
+table.tl td{padding:8px}
+table.tl td ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+table.tl td li{padding:3px 6px;border-radius:3px;background:var(--surface-2);line-height:1.35}
+table.tl td li.w{background:var(--accent-soft);box-shadow:inset 2px 0 0 var(--accent);font-weight:500}
+
+/* Profile cards */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+@media (max-width:820px){.cards{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px 20px;display:grid;gap:10px;align-content:start}
+.card header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card h3{margin:0;font-size:19px}
+.card .grp{font-size:12px;color:var(--ink-3)}
+.card p{margin:0;font-size:14px}
+.card ul{margin:0;padding-left:18px;font-size:13.5px;display:grid;gap:4px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;border-top:1px solid var(--rule);padding-top:10px}
+.kv dt{color:var(--ink-3)} .kv dd{margin:0}
+.card.base{background:var(--hsbc-row)}
+
+/* Gap matrix */
+.gap3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+@media (max-width:820px){.gap3{grid-template-columns:minmax(0,1fr)}}
+.gap3 > div{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;border-top-width:3px}
+.gap3 .c{border-top-color:var(--lag)} .gap3 .d{border-top-color:var(--lead)} .gap3 .l{border-top-color:var(--accent)}
+.gap3 ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:14px}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+@media (max-width:760px){.split{grid-template-columns:minmax(0,1fr)}}
+.split > div{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px}
+.split p{font-size:14px;margin:0 0 8px}
+
+/* Recommendations */
+ol.recs{list-style:none;counter-reset:r;margin:14px 0 0;padding:0;display:grid;gap:12px}
+ol.recs > li{counter-increment:r;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 14px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px}
+ol.recs > li::before{content:counter(r,decimal-leading-zero);font-family:var(--mono);font-size:20px;color:var(--accent);grid-row:span 3}
+ol.recs h4{text-transform:none;letter-spacing:0;font-size:16px;color:var(--ink);margin:0}
+ol.recs p{margin:0;font-size:14px}
+ol.recs .tags{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--ink-3)}
+ol.recs .tags span{border:1px solid var(--rule);border-radius:3px;padding:0 6px}
+
+/* Product matrix */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+table.pm{min-width:1320px;table-layout:fixed;font-size:12.5px}
+table.pm th,table.pm td{padding:8px 9px;line-height:1.35}
+table.pm thead th{white-space:normal;vertical-align:bottom;width:124px}
+table.pm thead th small,table.pm td small,table.pm th.pm-cap small{display:block;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink-3);font-size:11.5px;margin-top:2px}
+table.pm .pm-cap{position:sticky;left:0;z-index:1;width:190px;background:var(--surface);border-right:1px solid var(--rule);font-weight:600;font-size:13px}
+table.pm thead .pm-cap{background:var(--surface-2)}
+table.pm th:last-child{width:118px}
+table.pm tr.pm-grp th{background:var(--surface-2);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);padding:6px 9px}
+table.pm td b{display:block;font-weight:600}
+table.pm td.pm-live{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent)}
+table.pm td.pm-pilot{background:var(--parity-soft);box-shadow:inset 3px 0 0 var(--parity)}
+table.pm td.pm-plan{background:repeating-linear-gradient(135deg,var(--surface) 0 6px,var(--parity-soft) 6px 12px);box-shadow:inset 3px 0 0 var(--rule-strong)}
+table.pm td.pm-none,table.pm td.pm-na{color:var(--ink-3)}
+table.pm td.pm-na{background:var(--surface-2)}
+table.pm .pm-dash{font-family:var(--mono);font-size:12px}
+table.pm th.pm-h{background:var(--hsbc-row);color:var(--ink)}
+table.pm td.pm-h,table.pm th.pm-h{outline:1px solid var(--accent);outline-offset:-1px}
+table.pm tfoot td,table.pm tfoot th{border-top:1px solid var(--rule-strong);border-bottom:0;background:var(--surface)}
+table.pm tfoot td b{font-family:var(--mono);font-size:15px;display:inline}
+table.pm .pm-pos .pill{white-space:normal}
+.legend .sw i.pm-live{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent)}
+.legend .sw i.pm-pilot{background:var(--parity-soft);box-shadow:inset 3px 0 0 var(--parity)}
+.legend .sw i.pm-plan{background:repeating-linear-gradient(135deg,var(--surface) 0 4px,var(--parity-soft) 4px 8px)}
+.legend .sw i.pm-none{background:var(--surface)}
+.legend .sw i.pm-na{background:var(--surface-2)}
+
+/* Appendix */
+details{background:var(--surface);border:1px solid var(--rule);border-radius:6px;margin:10px 0}
+details summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:14.5px}
+details > div{padding:0 16px 14px;font-size:13.5px}
+details ul{margin:0;padding-left:18px;display:grid;gap:5px}
+dl.gloss{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:8px 18px;font-size:14px;margin:12px 0 0}
+dl.gloss dt{font-weight:600}
+dl.gloss dd{margin:0;color:var(--ink-2)}
+@media (max-width:600px){dl.gloss{grid-template-columns:minmax(0,1fr)} dl.gloss dd{margin-bottom:8px}}
+footer.end{padding-block:24px 0;font-size:12.5px;color:var(--ink-3)}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <span class="eyebrow">HSBC Wealth &amp; Personal Banking · Global Private Banking · AI Office</span>
+    <h1>Wealth AI Competitor Benchmark</h1>
+    <p class="dek">How HSBC's AI in wealth and private banking compares with seven UK and global competitors, and what we should do about it.</p>
+    <div class="meta">
+      <span><b>As of</b> 23 September 2026</span>
+      <span><b>Prepared by</b> AI Lead, Wealth &amp; Private Banking</span>
+      <span><b>Coverage</b> HSBC + 7 competitors</span>
+      <span><b>Basis</b> Public sources only</span>
+    </div>
+    <div><a class="xlink" href="competitor-ai-knowledge-graph.html">Explore the knowledge graph →</a></div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Contents">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#summary">Executive summary</a></li>
+        <li><a href="#scope">Scope and method</a></li>
+        <li><a href="#scorecard">Scorecard</a></li>
+        <li><a href="#positioning">Positioning map</a></li>
+        <li><a href="#products">AI product matrix</a></li>
+        <li><a href="#dimensions">Dimension deep dives</a></li>
+        <li><a href="#metrics">Metrics benchmark</a></li>
+        <li><a href="#timeline">2025–26 timeline</a></li>
+        <li><a href="#profiles">Competitor profiles</a></li>
+        <li><a href="#gaps">Gap analysis</a></li>
+        <li><a href="#recs">Recommendations</a></li>
+        <li><a href="#appendix">Appendix</a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+<!-- 1. EXECUTIVE SUMMARY -->
+<section id="summary">
+  <span class="sec-num">01</span>
+  <h2>Executive summary</h2>
+  <div class="verdict">
+    <p>HSBC leads UK banks on overall AI maturity and on financial-crime AI, but it trails in wealth. Our only live wealth AI is an RM research copilot in three Asian markets, with no published usage figures. Citi has shipped seven named wealth AI tools, including a client-facing avatar, and Lloyds, Revolut and NatWest already put AI assistants in front of UK customers.</p>
+  </div>
+
+  <div class="tri">
+    <div>
+      <h4><span class="dot lead"></span>Where HSBC leads</h4>
+      <ul>
+        <li><b>External maturity.</b> We ranked #8 in the 2025 Evident AI Index, the top UK bank (Lloyds #15, NatWest #16, Barclays #23).</li>
+        <li><b>Financial crime.</b> Dynamic Risk Assessment detects 2–4× more financial crime with 60% fewer false positives across ~1bn transactions a month. No peer has disclosed a stronger result.</li>
+        <li><b>Partner breadth.</b> Google Cloud (Gemini and DeepMind engineers), self-hosted Mistral, OpenAI in Wealth Intelligence, and Harvey.</li>
+        <li><b>Asia RM copilot.</b> Wealth Intelligence has been live in HK and SG since Sep 2025 and in Malaysia since Sep 2026. A Singapore AI Centre of Excellence focused on wealth conversations opens in H2 2026.</li>
+      </ul>
+    </div>
+    <div>
+      <h4><span class="dot lag"></span>Where HSBC lags</h4>
+      <ul>
+        <li><b>No client-facing wealth AI.</b> Peers have Citi Sky, Lloyds InvestAI (and the Financial Assistant at 500k+ customers), Revolut AIR (13M UK customers) and NatWest's agentic Cora. We have HKMA sandbox trials.</li>
+        <li><b>A narrower RM toolkit.</b> We have no meeting-notes tool, unlike CitiScribe or NatWest's 15 minutes saved per meeting. Product screening and asset allocation are still on the roadmap.</li>
+        <li><b>No UK wealth AI.</b> All our disclosed wealth AI is in Asia.</li>
+        <li><b>No quantified value.</b> Lloyds reports £50m in 2025 and targets £100m+ in 2026, JPMorgan reports ~$1.5bn, and NatWest reports ~£100m of capacity freed. We publish none.</li>
+      </ul>
+    </div>
+    <div>
+      <h4><span class="dot acc"></span>What it means</h4>
+      <ul>
+        <li><b>The UK mass-affluent window is closing.</b> FCA targeted support has applied since April 2026. Lloyds is using it to target 1m new investors through AI.</li>
+        <li><b>Capability isn't what's holding us back.</b> Citi built Citi Sky on the same Google Cloud stack we signed in June 2026. What's missing is a decision and a rollout plan.</li>
+        <li><b>Our hybrid thesis has data behind it.</b> In our Trust Threshold survey, 50% of affluent investors prefer AI plus an adviser, and only 12% say AI is their biggest influence. That supports client-facing AI that hands off to an RM.</li>
+        <li><b>We need to measure what we have.</b> Without usage and time-saved data for Wealth Intelligence, we can't defend our position.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 2. SCOPE & METHOD -->
+<section id="scope">
+  <span class="sec-num">02</span>
+  <h2>Scope and method</h2>
+  <p class="lede">This report benchmarks what each firm has <em>publicly</em> disclosed up to 23 September 2026. HSBC may have internal capabilities that aren't reflected here. The scores show what the market, regulators and clients can see.</p>
+
+  <h3>Peer set</h3>
+  <div class="tbl"><table class="w-wide">
+    <thead><tr><th>Group</th><th>Firm</th><th>Why it's in the benchmark</th></tr></thead>
+    <tbody>
+      <tr class="hsbc"><td>Baseline</td><td class="firm">HSBC<small>WPB · GPB · Premier</small></td><td>A global cross-border wealth franchise, measured on RM copilots, personalisation and suitability.</td></tr>
+      <tr><td rowspan="4">Tier-1 universal banking peers</td><td class="firm">Citi<small>Citi Wealth · Private Bank</small></td><td>The international private-bank benchmark: an advisor AI suite and a client-facing avatar.</td></tr>
+      <tr><td class="firm">Lloyds Banking Group<small>Lloyds Wealth (ex-SPW) · Scottish Widows</small></td><td>Mass-affluent AI guidance under the FCA targeted-support regime.</td></tr>
+      <tr><td class="firm">NatWest Group<small>Coutts · PB&amp;WM</small></td><td>A UK private bank using AI meeting intelligence, plus an OpenAI partnership.</td></tr>
+      <tr><td class="firm">Barclays<small>PBWM · Premier · Direct Investing</small></td><td>Enterprise GenAI at scale, and the link from retail customers to HNW advice.</td></tr>
+      <tr><td rowspan="3">Digital-native wealth &amp; neo-brokers</td><td class="firm">Revolut<small>Wealth &amp; Trading · Revolut X</small></td><td>An AI-first UX, agentic trading and a proprietary foundation model.</td></tr>
+      <tr><td class="firm">J.P. Morgan<small>JPMPI (ex-Nutmeg) · Group AWM</small></td><td>UK robo and hybrid advice backed by the #1-ranked AI bank. Scored twice: UK unit and group.</td></tr>
+      <tr><td class="firm">Trading 212</td><td>Self-directed investing with LLM analysis and an API open to AI agents.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Scoring dimensions</h3>
+  <div class="tbl"><table class="w-wide">
+    <thead><tr><th>Code</th><th>Dimension</th><th>What we assess</th></tr></thead>
+    <tbody>
+      <tr><td><b>A</b></td><td>Adviser / RM AI</td><td>Research copilots, meeting notes, CIO content, portfolio intelligence, client 360, meeting prep</td></tr>
+      <tr><td><b>B</b></td><td>Client-facing wealth AI</td><td>Assistants, AI guidance and targeted support, robo-advice, agentic trading (MCP/API)</td></tr>
+      <tr><td><b>C</b></td><td>Enterprise GenAI foundation</td><td>Colleague coverage and usage, coding assistants, agent platforms, model and vendor strategy</td></tr>
+      <tr><td><b>D</b></td><td>Risk, fraud &amp; compliance AI</td><td>AML, scam and fraud prevention, conduct and advice-quality monitoring</td></tr>
+      <tr><td><b>E</b></td><td>Strategy, governance &amp; value</td><td>AI leadership, investment, quantified value, Evident rank, regulator engagement, responsible AI</td></tr>
+      <tr><td><b>F</b></td><td>Momentum 2025–26</td><td>How often and how significantly the firm launched AI, weighted towards wealth</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Scoring scale</h3>
+  <div class="rubric">
+    <div><b>1 · None visible</b>No public evidence, or only rules-based automation.</div>
+    <div><b>2 · Early</b>Pilots, commentary, or a single narrow use case.</div>
+    <div><b>3 · Established</b>Live in production in one segment or market.</div>
+    <div><b>4 · Scaled</b>Live across several segments or markets, with some metrics.</div>
+    <div><b>5 · Leading</b>Broad, differentiated and measured. Others copy it.</div>
+  </div>
+  <p class="small muted">Evidence grades used throughout: <span class="grade v">VERIFIED</span> the firm's own release, filing or transcript · <span class="grade">REPORTED</span> reputable secondary press · <span class="grade">VENDOR</span> a supplier case study only. "n/a" means the dimension doesn't apply to that business model.</p>
+</section>
+
+<!-- 3. SCORECARD -->
+<section id="scorecard">
+  <span class="sec-num">03</span>
+  <h2>Scorecard</h2>
+  <p class="lede">Citi and JPMorgan (group) set the pace. HSBC scores highest on the enterprise dimensions (C–E) and lowest on client-facing wealth AI (B), where UK retail peers and Revolut have moved first.</p>
+
+  <div class="tbl"><table class="heat w-xl">
+    <thead><tr><th>Firm</th><th>A · RM</th><th>B · Client</th><th>C · Enterprise</th><th>D · Risk</th><th>E · Strategy</th><th>F · Momentum</th><th>Basis in one line</th></tr></thead>
+    <tbody>
+      <tr class="hsbc"><td class="firm">HSBC</td><td class="s s3">3</td><td class="s s1">1</td><td class="s s4">4</td><td class="s s5">5</td><td class="s s4">4</td><td class="s s4">4</td><td class="note">Wealth Intelligence in HK/SG/MY; DRA fin-crime lead; Evident #8; no client wealth AI</td></tr>
+      <tr><td class="firm">Citi</td><td class="s s5">5</td><td class="s s4">4</td><td class="s s5">5</td><td class="s s2">2</td><td class="s s4">4</td><td class="s s5">5</td><td class="note">Seven wealth AI tools; Citi Sky avatar; ~90% staff usage; fraud AI not disclosed in detail</td></tr>
+      <tr><td class="firm">J.P. Morgan <small>group</small></td><td class="s s4">4</td><td class="s s2">2</td><td class="s s5">5</td><td class="s s4">4</td><td class="s s5">5</td><td class="s s3">3</td><td class="note">Coach AI (95% faster retrieval); LLM Suite 200k+; Evident #1 for 4 years; ~$1.5bn value</td></tr>
+      <tr><td class="firm">Lloyds</td><td class="s s2">2</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s5">5</td><td class="note">InvestAI under targeted support; Financial Assistant 500k+; £50m value; no adviser copilot</td></tr>
+      <tr><td class="firm">NatWest / Coutts</td><td class="s s3">3</td><td class="s s3">3</td><td class="s s4">4</td><td class="s s3">3</td><td class="s s3">3</td><td class="s s4">4</td><td class="note">30% more RM time; agentic Cora on OpenAI; ChatGPT app; wealth client AI not branded</td></tr>
+      <tr><td class="firm">Revolut</td><td class="s sna">n/a</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s3">3</td><td class="s s5">5</td><td class="note">AIR to 13M UK; Revolut X MCP trading; PRAGMA foundation model; private bank not yet launched</td></tr>
+      <tr><td class="firm">Trading 212</td><td class="s sna">n/a</td><td class="s s3">3</td><td class="s s1">1</td><td class="s s1">1</td><td class="s s1">1</td><td class="s s3">3</td><td class="note">AI Analysis (OpenAI), in-app chatbot, AgentSkills API; nothing disclosed on operations</td></tr>
+      <tr><td class="firm">Barclays</td><td class="s s2">2</td><td class="s s1">1</td><td class="s s3">3</td><td class="s s3">3</td><td class="s s2">2</td><td class="s s2">2</td><td class="note">100k Copilot seats; PBWM call summaries only; wealth push is digital plus human, not AI</td></tr>
+      <tr><td class="firm">JPMPI <small>UK, ex-Nutmeg</small></td><td class="s s1">1</td><td class="s s1">1</td><td class="s sna">n/a</td><td class="s s1">1</td><td class="s s1">1</td><td class="s s1">1</td><td class="note">Rules-based robo plus human RMs; no AI announced at the Nov 2025 rebrand</td></tr>
+    </tbody>
+  </table></div>
+  <div class="legend" aria-hidden="true">
+    <span class="sw"><i class="s1"></i>1 None visible</span>
+    <span class="sw"><i class="s2"></i>2 Early</span>
+    <span class="sw"><i class="s3"></i>3 Established</span>
+    <span class="sw"><i class="s4"></i>4 Scaled</span>
+    <span class="sw"><i class="s5"></i>5 Leading</span>
+    <span class="sw"><i class="sna"></i>n/a Not applicable</span>
+  </div>
+  <p class="small muted" style="margin-top:10px">Scores are the author's judgement from the evidence in the research notes. Citi's D score reflects how little it has disclosed, not what it can do. JPMorgan is split because none of its group AI is confirmed as deployed in the UK JPMPI business.</p>
+</section>
+
+<!-- 4. POSITIONING -->
+<section id="positioning">
+  <span class="sec-num">04</span>
+  <h2>Positioning map</h2>
+  <p class="lede">HSBC sits in the adviser-first quadrant with no client-facing AI yet. Citi is the only firm with strong scores on both axes. UK retail banks and Revolut are reaching wealth clients directly, without going through advisers.</p>
+  <figure>
+    <div class="fig-scroll">
+    <svg viewBox="0 0 560 420" width="100%" style="min-width:420px;max-width:680px;display:block;margin:0 auto" role="img" aria-labelledby="pmTitle pmDesc">
+      <title id="pmTitle">Adviser AI versus client-facing AI positioning</title>
+      <desc id="pmDesc">Scatter of nine firms on dimension A (adviser/RM AI) and dimension B (client-facing wealth AI), each scored 1 to 5.</desc>
+      <!-- quadrant fills -->
+      <rect x="95" y="40" width="190" height="150" fill="var(--surface-2)"/>
+      <rect x="285" y="40" width="190" height="150" fill="var(--accent-soft)"/>
+      <rect x="95" y="190" width="190" height="150" fill="var(--surface)"/>
+      <rect x="285" y="190" width="190" height="150" fill="var(--surface-2)"/>
+      <!-- grid -->
+      <g stroke="var(--rule)" stroke-width="1">
+        <line x1="95" y1="340" x2="475" y2="340"/><line x1="95" y1="40" x2="95" y2="340"/>
+        <line x1="285" y1="40" x2="285" y2="340" stroke-dasharray="3 4"/>
+        <line x1="95" y1="190" x2="475" y2="190" stroke-dasharray="3 4"/>
+      </g>
+      <!-- quadrant labels -->
+      <g font-size="11" fill="var(--ink-3)" font-weight="600" letter-spacing=".06em">
+        <text x="103" y="56">CLIENT-FIRST</text>
+        <text x="467" y="56" text-anchor="end">FULL-STACK</text>
+        <text x="467" y="332" text-anchor="end">ADVISER-FIRST</text>
+        <text x="275" y="216" text-anchor="end">EARLY</text>
+      </g>
+      <!-- ticks -->
+      <g font-size="11" fill="var(--ink-2)" text-anchor="middle">
+        <text x="110" y="358">1</text><text x="197.5" y="358">2</text><text x="285" y="358">3</text><text x="372.5" y="358">4</text><text x="460" y="358">5</text>
+      </g>
+      <g font-size="11" fill="var(--ink-2)" text-anchor="end">
+        <text x="87" y="329">1</text><text x="87" y="261">2</text><text x="87" y="194">3</text><text x="87" y="126">4</text><text x="87" y="59">5</text>
+      </g>
+      <text x="285" y="386" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="600">A · Adviser / RM AI →</text>
+      <text transform="translate(34 190) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="600">B · Client-facing wealth AI →</text>
+      <!-- points: x = 110 + (A-1)*87.5 ; y = 325 - (B-1)*67.5 -->
+      <g font-size="12" fill="var(--ink)">
+        <!-- Citi 5,4 -->
+        <circle cx="460" cy="122" r="7" fill="var(--accent)"/>
+        <text x="450" y="104" text-anchor="end" font-weight="600">Citi</text>
+        <!-- Lloyds 2,4 -->
+        <circle cx="198" cy="122" r="7" fill="var(--accent)"/>
+        <text x="210" y="126">Lloyds</text>
+        <!-- Revolut 1(n/a),4 -->
+        <circle cx="110" cy="122" r="7" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="110" y="104" text-anchor="middle">Revolut*</text>
+        <!-- NatWest 3,3 -->
+        <circle cx="285" cy="190" r="7" fill="var(--accent)"/>
+        <text x="297" y="182">NatWest</text>
+        <!-- T212 1(n/a),3 -->
+        <circle cx="110" cy="190" r="7" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="122" y="182">Trading 212*</text>
+        <!-- JPM group 4,2 -->
+        <circle cx="372" cy="257" r="7" fill="var(--accent)"/>
+        <text x="384" y="261">JPM group</text>
+        <!-- Barclays 2,1 -->
+        <circle cx="198" cy="325" r="7" fill="var(--accent)"/>
+        <text x="198" y="309" text-anchor="middle">Barclays</text>
+        <!-- JPMPI 1,1 -->
+        <circle cx="110" cy="325" r="7" fill="var(--accent)"/>
+        <text x="110" y="309" text-anchor="middle">JPMPI UK</text>
+        <!-- HSBC 3,1 -->
+        <circle cx="285" cy="325" r="9" fill="var(--lag)"/>
+        <text x="285" y="306" text-anchor="middle" font-weight="700">HSBC</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>Axes use the dimension A and B scores from the scorecard. *Revolut and Trading 212 have no adviser model; they are plotted at A = 1 with hollow markers.</figcaption>
+  </figure>
+</section>
+
+<!-- 5. PRODUCT MATRIX -->
+<section id="products">
+  <span class="sec-num">05</span>
+  <h2>AI product matrix</h2>
+  <p class="lede">This matrix shows every named AI product side by side, by what it does and who it serves. Citi has the fullest wealth line-up, with four products live and two rolling out. HSBC has one live wealth product, Wealth Intelligence. It is absent in five of the nine wealth categories where at least one peer is live.</p>
+  <div class="tbl pm-wrap"><table class="pm">
+  <thead><tr><th scope="col" class="pm-cap">AI product</th><th scope="col" class="pm-h">HSBC<small>Baseline</small></th><th scope="col">Citi</th><th scope="col">J.P. Morgan<small>Group · JPMPI</small></th><th scope="col">Lloyds</th><th scope="col">NatWest / Coutts</th><th scope="col">Revolut</th><th scope="col">Barclays</th><th scope="col">Trading 212</th><th scope="col">HSBC position</th></tr></thead>
+  <tbody><tr class="pm-grp"><th scope="rowgroup" colspan="10">Adviser / RM AI</th></tr>
+    <tr><th scope="row" class="pm-cap">Research &amp; CIO copilot<small>Q&amp;A over research and house views</small></th><td class="pm-live pm-h"><span class="sr">Live: </span><b>Wealth Intelligence</b><small>OpenAI · HK, SG, MY</small></td><td class="pm-live"><span class="sr">Live: </span><b>AskWealth · AskWealth CIO</b><small>Global; CIO agentic research layer</small></td><td class="pm-live"><span class="sr">Live: </span><b>Coach AI</b><small>~4,000 US PB advisers; none at JPMPI</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>Banker GenAI chatbot</b><small>PB&amp;WM, internal</small></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-pos"><span class="pill parity">Parity</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Meeting capture &amp; notes<small>Call and meeting summaries</small></th><td class="pm-none pm-h"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>CitiScribe</b><small>All NA advisors</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>Meeting summaries</b><small>Up to 15 min saved per meeting</small></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-live"><span class="sr">Live: </span><b>PBWM call summaries</b><small>No metrics</small></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-pos"><span class="pill lag">Gap</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Client 360 &amp; meeting prep<small>Client view, alerts, next-best action</small></th><td class="pm-pilot pm-h"><span class="sr">Pilot or rolling out: </span><b>RM decision assistant</b><small>Google Cloud · Jun 2026</small></td><td class="pm-live"><span class="sr">Live: </span><b>Client 360 · Advisor Insights</b><small>Meeting-prep agents on Arc</small></td><td class="pm-live"><span class="sr">Live: </span><b>Coach AI</b><small>Pre-populates client data</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-plan"><span class="sr">Announced or exploring: </span><b>Dynamics CRM insight</b><small>Planned 2026</small></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-pos"><span class="pill lag">Behind</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Conduct &amp; suitability monitoring<small>AI review of advice conversations</small></th><td class="pm-none pm-h"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>Aveni Detect</b><small>Ex-SPW advisers, since 2023</small></td><td class="pm-plan"><span class="sr">Announced or exploring: </span><b>Aveni (fintech cohort)</b><small>No deployment confirmed</small></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-na"><span class="sr">Not applicable: </span><span class="pm-dash" aria-hidden="true">n/a</span></td><td class="pm-pos"><span class="pill lag">Gap</span></td></tr>
+  </tbody>
+  <tbody><tr class="pm-grp"><th scope="rowgroup" colspan="10">Client-facing wealth AI</th></tr>
+    <tr><th scope="row" class="pm-cap">Conversational assistant<small>In-app GenAI for customers</small></th><td class="pm-pilot pm-h"><span class="sr">Pilot or rolling out: </span><b>GenAI chatbot trials</b><small>HKMA sandbox only</small></td><td class="pm-pilot"><span class="sr">Pilot or rolling out: </span><b>Citi Sky</b><small>US Citigold from summer 2026</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>Financial Assistant</b><small>500k+ Bank of Scotland</small></td><td class="pm-live"><span class="sr">Live: </span><b>Agentic Cora</b><small>OpenAI · 25k agentic; 7.1m chats H1</small></td><td class="pm-live"><span class="sr">Live: </span><b>AIR</b><small>13M UK customers</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span><small>UK: none; US cards bot only</small></td><td class="pm-live"><span class="sr">Live: </span><b>AI Chatbot Analyser</b><small>All users, 20+ languages</small></td><td class="pm-pos"><span class="pill lag">Behind</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Portfolio insights &amp; explanations<small>AI view of holdings and performance</small></th><td class="pm-none pm-h"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>Portfolio Intelligence</b><small>NA Private Bank; global due Q2 2026</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>Financial Assistant</b><small>Savings &amp; investments feature</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>AIR</b><small>Investment tracking</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>AI Analysis</b><small>Instrument &amp; portfolio · OpenAI</small></td><td class="pm-pos"><span class="pill lag">Gap</span></td></tr>
+    <tr><th scope="row" class="pm-cap">AI guidance or advice<small>Targeted support, simplified advice</small></th><td class="pm-none pm-h"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span><small>Wealth Builder robo is rules-based</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span><small>JPMPI robo is rules-based</small></td><td class="pm-pilot"><span class="sr">Pilot or rolling out: </span><b>InvestAI</b><small>FCA AI Live Testing; targeted support</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span><small>£200 digital advice, not AI</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span><small>Human plus digital model</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span><small>Labelled “not advice”</small></td><td class="pm-pos"><span class="pill parity">Open field</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Agent access (MCP / API)<small>External AI agents act on the account</small></th><td class="pm-none pm-h"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>App inside ChatGPT</b><small>Mortgages, not wealth</small></td><td class="pm-pilot"><span class="sr">Pilot or rolling out: </span><b>Revolut X MCP</b><small>Beta · user confirms each order</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>AgentSkills API</b><small>Agents can place trades</small></td><td class="pm-pos"><span class="pill lag">Behind neo-brokers</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Voice &amp; avatar<small>Spoken or video AI for clients</small></th><td class="pm-none pm-h"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-pilot"><span class="sr">Pilot or rolling out: </span><b>Citi Sky avatar</b><small>Gemini + DeepMind; EN/ES</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-plan"><span class="sr">Announced or exploring: </span><b>Voice-to-voice AI</b><small>Experiment announced Feb 2026</small></td><td class="pm-live"><span class="sr">Live: </span><b>Voice agents</b><small>ElevenLabs · 4M+ customers</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-pos"><span class="pill lag">Gap</span></td></tr>
+  </tbody>
+  <tbody><tr class="pm-grp"><th scope="rowgroup" colspan="10">Enterprise foundation</th></tr>
+    <tr><th scope="row" class="pm-cap">Colleague GenAI assistant<small>Firm-wide chat and productivity</small></th><td class="pm-live pm-h"><span class="sr">Live: </span><b>GenAI tools</b><small>85% of staff; 600+ use cases</small></td><td class="pm-live"><span class="sr">Live: </span><b>Stylus Workspaces</b><small>~90% of ~180k using</small></td><td class="pm-live"><span class="sr">Live: </span><b>LLM Suite</b><small>200k+ users</small></td><td class="pm-live"><span class="sr">Live: </span><b>M365 Copilot · Athena</b><small>40k seats, 97% active</small></td><td class="pm-live"><span class="sr">Live: </span><b>Internal LLM · AskArchie+</b><small>All 60k colleagues</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>M365 Copilot</b><small>100k seats</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-pos"><span class="pill parity">Parity</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Coding assistant<small>AI for software engineering</small></th><td class="pm-live pm-h"><span class="sr">Live: </span><b>Coding assistants</b><small>20k+ devs; 15% efficiency</small></td><td class="pm-live"><span class="sr">Live: </span><b>GitHub Copilot · Devin</b><small>~100k hours/week freed</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>GitHub Copilot</b><small>10k+ engineers</small></td><td class="pm-live"><span class="sr">Live: </span><b>AI coding</b><small>35% of code AI-written</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>GitLab Duo</b><small>23k users</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-pos"><span class="pill parity">Parity</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Agent platform<small>Build and govern AI agents</small></th><td class="pm-plan pm-h"><span class="sr">Announced or exploring: </span><b>Google Cloud partnership</b><small>Agentic DRA phase next</small></td><td class="pm-live"><span class="sr">Live: </span><b>Arc</b><small>Every agent monitored</small></td><td class="pm-plan"><span class="sr">Announced or exploring: </span><b>LLM Suite agents</b><small>On roadmap</small></td><td class="pm-live"><span class="sr">Live: </span><b>Envoy · Agent 365</b><small>Google + Microsoft</small></td><td class="pm-pilot"><span class="sr">Pilot or rolling out: </span><b>Agentic engineering</b><small>10× in trials</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-live"><span class="sr">Live: </span><b>Colleague AI Agent</b><small>On M365 Copilot</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-pos"><span class="pill lag">Behind</span></td></tr>
+    <tr><th scope="row" class="pm-cap">Financial crime &amp; fraud AI<small>AML, scam and fraud detection</small></th><td class="pm-live pm-h"><span class="sr">Live: </span><b>Dynamic Risk Assessment</b><small>2–4× detection; −60% false positives</small></td><td class="pm-live"><span class="sr">Live: </span><b>Fraud and AML AI</b><small>Not detailed</small></td><td class="pm-live"><span class="sr">Live: </span><b>Real-time ML fraud</b><small>LLMs for BEC detection</small></td><td class="pm-live"><span class="sr">Live: </span><b>Agentic fraud · Scam Check</b><small>£1bn fraud prevented 2025</small></td><td class="pm-live"><span class="sr">Live: </span><b>Agentic fraud reporting</b><small>In Cora</small></td><td class="pm-live"><span class="sr">Live: </span><b>Sherlock · scam detector</b><small>−30% card-scam losses</small></td><td class="pm-live"><span class="sr">Live: </span><b>Anomaly models · mule bots</b><small>No metrics</small></td><td class="pm-none"><span class="sr">None disclosed: </span><span class="pm-dash" aria-hidden="true">—</span></td><td class="pm-pos"><span class="pill lead">Lead</span></td></tr>
+  </tbody>
+  <tfoot><tr><th scope="row" class="pm-cap">Wealth products<small>Adviser + client rows, of 9</small></th><td class="num pm-h"><b>1</b> live<small>2 in progress</small></td><td class="num"><b>4</b> live<small>2 in progress</small></td><td class="num"><b>2</b> live<small>0 in progress</small></td><td class="num"><b>3</b> live<small>1 in progress</small></td><td class="num"><b>4</b> live<small>3 in progress</small></td><td class="num"><b>3</b> live<small>1 in progress</small></td><td class="num"><b>1</b> live<small>0 in progress</small></td><td class="num"><b>3</b> live<small>0 in progress</small></td><td></td></tr></tfoot>
+</table></div>
+  <div class="legend">
+    <span class="sw"><i class="pm-live"></i>Live</span>
+    <span class="sw"><i class="pm-pilot"></i>Pilot or rolling out</span>
+    <span class="sw"><i class="pm-plan"></i>Announced or exploring</span>
+    <span class="sw"><i class="pm-none"></i>— None disclosed</span>
+    <span class="sw"><i class="pm-na"></i>n/a No adviser model</span>
+  </div>
+  <div class="split">
+    <div>
+      <h4>What the matrix shows</h4>
+      <p>Peers are live across the whole adviser workflow, from research and meeting notes to client prep and conduct review. HSBC covers research only. On the client side, five firms have a live assistant or portfolio-insight product, and HSBC has sandbox trials.</p>
+      <p>The enterprise rows are close to even. HSBC is at parity on colleague and coding tools and leads on financial crime. So the gap is in wealth products, not in the platform underneath them.</p>
+    </div>
+    <div>
+      <h4>How to read it</h4>
+      <p>A cell shows a firm's named product for that capability, with its scope. "None disclosed" means we found no public evidence, not that the capability doesn't exist internally. Rules-based robo services are counted as none, because they aren't AI.</p>
+      <p>The J.P. Morgan column is group-level. None of those products is confirmed at JPMPI in the UK. Barclays' US cards chatbot is excluded because it isn't UK or wealth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DEEP DIVES -->
+<section id="dimensions">
+  <span class="sec-num">06</span>
+  <h2>Dimension deep dives</h2>
+  <p class="lede">Each dimension covers what best in class looks like, how the peers compare, where HSBC stands, and what follows for us.</p>
+
+  <!-- A -->
+  <div class="dd-head"><h3>A · Adviser / RM AI</h3><span class="pill parity">HSBC: parity with UK peers · lag vs Citi, JPM</span></div>
+  <p><b>Best in class:</b> Citi has a staged suite covering every part of the adviser workflow: research Q&amp;A, CIO views, alerts, a single client view, meeting notes and agentic meeting prep. JPMorgan is the only firm that has published an outcome metric for an adviser copilot.</p>
+  <div class="tbl"><table class="w-xl">
+    <thead><tr><th>Firm</th><th>What's live</th><th>Reach</th><th>Metrics</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="firm">Citi</td><td>AskWealth (GenAI Q&amp;A), Advisor Insights, AskWealth CIO, Client 360, CitiScribe meeting notes, CIO agentic research layer, meeting-prep agents on Arc</td><td>AskWealth global (launched first in Asia); CitiScribe for all NA advisors; Advisor Insights international Q4 25–Q1 26</td><td>None published</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">J.P. Morgan group</td><td>Coach AI: pre-populates client data, remembers preferences, retrieves research</td><td>~4,000 US private-bank advisers</td><td>Up to 95% faster retrieval; target of 50% larger client rosters in 3–5 yrs</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td>Wealth Intelligence (OpenAI, 10,000+ sources, CIO research); RM decision assistant (Google)</td><td>HK, SG (Sep 2025), MY (Sep 2026)</td><td>None published; "hours to minutes" prep claim</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">NatWest / Coutts</td><td>AI call and meeting summaries; internal GenAI chatbot; Dynamics CRM for AI insight (2026)</td><td>PB&amp;WM bankers</td><td>Up to 15 min saved per meeting; ~30% more RM client time</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds Wealth</td><td>Aveni Detect monitors advice conversations (since 2023)</td><td>Ex-SPW advisers</td><td>None</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Barclays</td><td>PBWM call summarisation</td><td>PBWM</td><td>None</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">JPMPI UK</td><td>None disclosed</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>For HSBC:</b> Wealth Intelligence covers the research part of the workflow well, but meeting notes and CRM-driven next-best action are missing. Citi launched AskWealth in Asia first, so our head start there is contested. Our next two modules should be meeting capture and a client-360 view, and we should publish usage and time-saved numbers.</p></div>
+
+  <!-- B -->
+  <div class="dd-head"><h3>B · Client-facing wealth AI</h3><span class="pill lag">HSBC: lag</span></div>
+  <p><b>Best in class:</b> Citi Sky for private and premier clients (a voice and video avatar on Gemini, with DeepMind avatar technology). Lloyds InvestAI for regulated mass-affluent guidance. Revolut AIR for reach.</p>
+  <div class="tbl"><table class="w-xl">
+    <thead><tr><th>Firm</th><th>Product</th><th>Status and reach</th><th>Guardrail / regulatory posture</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="firm">Citi</td><td>Citi Sky (always-on AI team member); Portfolio Intelligence client view</td><td>Sky: phased US Citigold rollout from summer 2026. PI: live for NA Private Bank, global Private Bank due Q2 2026</td><td>Works alongside human advisors; English and Spanish</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td>InvestAI ("satnav for investments") in the Scottish Widows app; Financial Assistant with a savings and investments feature</td><td>InvestAI piloted H1 2026, extending under Lloyds Wealth; Financial Assistant 500k+ BoS customers</td><td>Guidance, not advice; FCA AI Live Testing cohort 2; targeted support; target of 1m new investors</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Revolut</td><td>AIR (includes investment tracking); Revolut X MCP link to Claude, Gemini and Cursor</td><td>AIR for 13M UK customers (Apr 2026); MCP in beta (Jul 2026)</td><td>Biometric approval for sensitive actions; AI stages orders and the user confirms each one</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td class="firm">NatWest</td><td>Agentic Cora assistant (OpenAI); mortgage app inside ChatGPT</td><td>Agentic assistant for 25k customers (Q1 2026); Cora 7.1m conversations H1 2026</td><td>Wealth "digital wealth manager" (£200 advice) is not AI-branded</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Trading 212</td><td>AI Analysis (OpenAI); AI Chatbot Analyser; AgentSkills API</td><td>Chatbot for all users (Apr 2026), 20+ languages</td><td>"Not advice" and "not human-verified" labels; early user reception negative; agents can place trades</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">J.P. Morgan</td><td>Smart Cash (US, 2026); JPMPI Wealth Planner</td><td>Wealth Planner rules-based; no AI claimed</td><td>—</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td>GenAI chatbot trials in the HKMA GenAI Sandbox; Amy (2017-era NLP bot)</td><td>Trial only; nothing live in the UK or HK apps</td><td>Wealth Intelligence explicitly gives no advice to clients</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Barclays</td><td>None; Premier Wealth Management is digital plus human</td><td>—</td><td>—</td><td><span class="grade v">VERIFIED</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>For HSBC:</b> This is our largest gap and the one clients can see. The peer pattern is to start with information (tracking, explanations), move to guidance under targeted support, then to simplified advice, always with a human hand-off. Our Trust Threshold survey supports the hybrid design, and the Google partnership provides the same stack Citi used.</p></div>
+
+  <!-- C -->
+  <div class="dd-head"><h3>C · Enterprise GenAI foundation</h3><span class="pill parity">HSBC: parity</span></div>
+  <p><b>Best in class:</b> Citi and JPMorgan on scale and measured usage. Lloyds and NatWest on disclosed productivity metrics. Revolut is unusual in building its own foundation model.</p>
+  <div class="tbl"><table class="w-xl">
+    <thead><tr><th>Firm</th><th>Colleague reach</th><th>Developers</th><th>Platforms and models</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr class="hsbc"><td class="firm">HSBC</td><td>85% have GenAI tools; 600+ AI use cases</td><td>20k+ devs, 15% efficiency; patching 5× faster</td><td>Self-hosted Mistral, Google Gemini, OpenAI; central AI platform under the CTO</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td class="firm">Citi</td><td>~180k with access; ~90% using (Q2 2026); 42m interactions</td><td>~40k devs; ~100k hours/week freed</td><td>Stylus Workspaces (Gemini + Claude), Arc agent platform, Devin, GitHub Copilot</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">J.P. Morgan</td><td>LLM Suite 200k+ users</td><td>—</td><td>Model-agnostic (OpenAI, Anthropic); 450+ use cases</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td>40k M365 Copilot, 97% active; Athena cuts search time 66%</td><td>10k+ on GitHub Copilot</td><td>Vertex AI, Envoy agents (Google), M365 E7 / Agent 365, Aveni FinLLM</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">NatWest</td><td>All 60k colleagues; AskArchie+ answers 75% of HR queries</td><td>12k+ coders; 35% of code AI-written; 10× in agentic trials</td><td>Internal LLM platform, Copilot Chat, OpenAI, AWS + Accenture</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Barclays</td><td>100k M365 Copilot seats; 250+ AI tools</td><td>GitLab Duo 23k users; 15% faster</td><td>Microsoft-centric; no model provider disclosed</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td class="firm">Revolut</td><td>—</td><td>—</td><td>PRAGMA banking foundation model (up to 1B params); Revolut Research (Aug 2026)</td><td><span class="grade">VENDOR</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>For HSBC:</b> Our vendor strategy (self-hosted plus cloud, several models) is among the strongest in the peer set. Our disclosure is the weakness. We publish access figures, while peers publish active usage, minutes saved and share of code written by AI.</p></div>
+
+  <!-- D -->
+  <div class="dd-head"><h3>D · Risk, fraud &amp; compliance AI</h3><span class="pill lead">HSBC: lead</span></div>
+  <p><b>Best in class:</b> HSBC Dynamic Risk Assessment for AML. Lloyds for fraud outcomes customers can see. Revolut for ML fraud and scam detection built on its own models.</p>
+  <div class="tbl"><table class="w-xl">
+    <thead><tr><th>Firm</th><th>Capability</th><th>Result</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr class="hsbc"><td class="firm">HSBC</td><td>Dynamic Risk Assessment (Google AML AI); next phase uses GenAI and agentic AI to intervene twice as fast</td><td>2–4× more financial crime detected; 60% fewer false positives; ~1bn tx/month</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td>Agentic fraud agents on live calls; Scam Check image analysis; Dynamic Risk Engine; Aveni Detect for advice conduct</td><td>£1bn fraud prevented in 2025; £30m of previously unknown risk found</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Revolut</td><td>Sherlock card ML; card-scam detector; PRAGMA for fraud and credit</td><td>−30% card-scam investment-fraud losses; +65% fraud caught (historical test)</td><td><span class="grade v">VERIFIED</span> / <span class="grade">VENDOR</span></td></tr>
+      <tr><td class="firm">J.P. Morgan</td><td>Real-time ML fraud; LLMs for BEC detection</td><td>Part of ~$1.5bn AI value</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td class="firm">NatWest</td><td>Agentic fraud reporting in Cora; fraud trend AI</td><td>No metrics published</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Barclays</td><td>Anomaly models; bots that pose as victims to find money mules</td><td>No metrics published</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Citi</td><td>"Defensive capabilities: cyber, fraud, AML" (generic)</td><td>Not disclosed</td><td><span class="grade v">VERIFIED</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>For HSBC:</b> This is our strongest dimension. The wealth-specific gap is AI monitoring of RM conversations for conduct and suitability, which Lloyds Wealth has run since 2023. It fits naturally alongside a meeting-notes tool.</p></div>
+
+  <!-- E -->
+  <div class="dd-head"><h3>E · Strategy, governance &amp; value</h3><span class="pill parity">HSBC: lead on rank · lag on value disclosure</span></div>
+  <div class="tbl"><table class="w-xl">
+    <thead><tr><th>Firm</th><th>Evident 2025</th><th>AI leadership</th><th>Stated value / investment</th><th>Regulator &amp; governance</th></tr></thead>
+    <tbody>
+      <tr><td class="firm">J.P. Morgan</td><td class="num">#1 (4th year)</td><td>Chief Analytics Officer Derek Waldron</td><td>~$1.5bn AI value; $17bn tech budget (2024)</td><td>Leads Evident on transparency</td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td class="num">#8 (top UK)</td><td>Chief AI Officer David Rice (Apr 2026)</td><td>GenAI is the "biggest new tech investment"; $100m threshold for Google use cases; value not quantified</td><td>HKMA GenAI Sandbox; Ethical Use of Data &amp; AI principles</td></tr>
+      <tr><td class="firm">Lloyds</td><td class="num">#15 (+12)</td><td>Chief Data &amp; AI Officer Sameer Gupta (ex-DBS)</td><td>£50m (2025) → £100m+ (2026); £2bn savings 2027–30</td><td>FCA AI Live Testing; tied first for Responsible AI; ISO 42001-aligned</td></tr>
+      <tr><td class="firm">NatWest</td><td class="num">#16</td><td>Chief AI Research Officer Maja Pantic</td><td>£1.2bn tech/data/AI spend (2025); ~£100m capacity freed</td><td>FCA AI Live Testing; mandatory ethics accreditation for 60k staff</td></tr>
+      <tr><td class="firm">Barclays</td><td class="num">#23</td><td>Group CIO Antoinette O'Neill</td><td>AI is the "icing on the cake" of ~£2bn savings</td><td>FCA AI Live Testing; GenAI governance regime (Q1 2026)</td></tr>
+      <tr><td class="firm">Citi</td><td>Not confirmed ("most entrepreneurial")</td><td>CTO Griffiths; CIO Saluzzo (ex-Google)</td><td>$5bn 2026–28 investment, part-funded by AI</td><td>Arc: "every agent monitored, auditable"</td></tr>
+      <tr><td class="firm">Revolut</td><td>Not ranked</td><td>AI Department; Revolut Research</td><td>£4.5bn revenue context; no AI value figure</td><td>Full UK licence (Mar 2026)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>For HSBC:</b> Of the five UK banks, three (Lloyds, NatWest, Barclays) are in the FCA's AI Live Testing and HSBC isn't. Lloyds is using it to take a first-mover position under targeted support. We should decide whether to join cohort 3 with a UK wealth use case.</p></div>
+</section>
+
+<!-- 7. METRICS -->
+<section id="metrics">
+  <span class="sec-num">07</span>
+  <h2>Metrics benchmark</h2>
+  <p class="lede">Every quantified claim in the research, grouped by what it measures. Few of these figures are like-for-like; treat them as signals of what each firm chooses to disclose.</p>
+  <div class="tbl"><table class="w-xl">
+    <thead><tr><th>Category</th><th>Firm</th><th>Metric</th><th>Date</th><th>Grade</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="6">Colleague scale</td><td class="firm">Citi</td><td class="num">~180k with access; "nearly 9 in 10" using</td><td>Jul 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">J.P. Morgan</td><td class="num">200k+ LLM Suite users</td><td>2025</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Barclays</td><td class="num">100k M365 Copilot seats (planned; live count unconfirmed)</td><td>Jun 2025</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">NatWest</td><td class="num">All 60k colleagues have AI tools</td><td>End-2025</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td class="num">40k Copilot licences, 97% active; 46 min/day saved</td><td>Jun 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td class="num">85% of employees have GenAI tools</td><td>Feb 2026</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td rowspan="5">Developer productivity</td><td class="firm">Citi</td><td class="num">~100k developer hours/week freed; 30–40% productivity (Services)</td><td>Oct 2025 / May 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">NatWest</td><td class="num">35% of code AI-written; 12k+ engineers</td><td>Feb 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td class="num">20k+ devs; 15% coding efficiency; patching 5× faster</td><td>2025–26</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td class="num">10k+ on GitHub Copilot; 50% faster code conversion</td><td>Jan–Jun 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Barclays</td><td class="num">GitLab Duo 23k users; 15% faster implementation</td><td>Feb 2026</td><td><span class="grade">VENDOR</span></td></tr>
+      <tr><td rowspan="3">Wealth / RM productivity</td><td class="firm">J.P. Morgan</td><td class="num">Coach AI: up to 95% faster retrieval; ~4,000 advisers</td><td>May 2025</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td class="firm">NatWest / Coutts</td><td class="num">Up to 15 min saved per meeting; ~30% more RM client time</td><td>Jun 2025 / Feb 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td class="num">Wealth Intelligence: no usage metrics; decision assistant cuts prep "from hours to minutes"</td><td>Jun 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td rowspan="6">Customer reach</td><td class="firm">Revolut</td><td class="num">AIR available to 13M UK customers</td><td>Apr 2026</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td class="firm">Revolut</td><td class="num">Voice agents: 4M+ customers, 31+ languages, 8× faster; chatbot handles ~75% of queries</td><td>Jan 2026</td><td><span class="grade">VENDOR</span></td></tr>
+      <tr><td class="firm">NatWest</td><td class="num">Cora 7.1m conversations (3.8m fully digital, +23%); agentic assistant 25k</td><td>H1 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td class="num">Financial Assistant 500k+ Bank of Scotland customers</td><td>Jun 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td class="num">InvestAI 8,000+ member conversations</td><td>Aug 2026</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td class="num">CIB GenAI servicing assistant: ~3m interactions/yr, 88% CSAT</td><td>2025</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td rowspan="6">Value &amp; financial crime</td><td class="firm">J.P. Morgan</td><td class="num">~$1.5bn value from AI</td><td>May 2025</td><td><span class="grade">REPORTED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td class="num">£50m GenAI P&amp;L benefit; £100m+ target 2026</td><td>Jan 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">NatWest</td><td class="num">~£100m capacity freed; 70k+ hours saved in Retail</td><td>Feb 2026</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr class="hsbc"><td class="firm">HSBC</td><td class="num">DRA: 2–4× detection, 60% fewer false positives, ~1bn tx/month</td><td>2024–26</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Lloyds</td><td class="num">£1bn attempted fraud prevented</td><td>2025</td><td><span class="grade v">VERIFIED</span></td></tr>
+      <tr><td class="firm">Revolut</td><td class="num">PRAGMA: +65% fraud caught, 2.3× default-risk identification (historical data)</td><td>Apr 2026</td><td><span class="grade">VENDOR</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 8. TIMELINE -->
+<section id="timeline">
+  <span class="sec-num">08</span>
+  <h2>2025–26 timeline</h2>
+  <p class="lede">Launches came fastest in Q2 2026. That quarter brought Citi Sky, Citi's four adviser tools, Revolut AIR, NatWest's ChatGPT app and the Lloyds InvestAI pilot. Highlighted items are wealth-relevant.</p>
+  <div class="tbl"><table class="tl">
+    <thead><tr><th>Firm</th><th>Q1 2025</th><th>Q2 2025</th><th>Q3 2025</th><th>Q4 2025</th><th>Q1 2026</th><th>Q2 2026</th><th>Q3 2026</th></tr></thead>
+    <tbody>
+      <tr class="hsbc"><td class="firm">HSBC</td><td></td><td></td>
+        <td><ul><li>HKMA sandbox chatbot trials</li><li class="w">Wealth Intelligence HK/SG</li><li>IBM quantum bond trial</li></ul></td>
+        <td><ul><li>Evident #8</li><li>Mistral self-hosted</li></ul></td>
+        <td><ul><li>Harvey (legal)</li><li>Chief AI Officer named</li></ul></td>
+        <td><ul><li class="w">Google Cloud: RM decision assistant</li><li class="w">Trust Threshold survey</li></ul></td>
+        <td><ul><li class="w">Singapore AI CoE (wealth)</li><li>HSBC AM invests in Model ML</li><li class="w">Wealth Intelligence Malaysia</li></ul></td></tr>
+      <tr><td class="firm">Citi</td><td></td><td></td>
+        <td><ul><li class="w">AskWealth global</li><li class="w">Advisor Insights pilot</li><li>Stylus agentic</li></ul></td>
+        <td><ul><li>Mandatory prompt training</li></ul></td>
+        <td><ul><li>Stylus Spaces</li><li>Sakana AI stake</li><li>CIO hire (ex-Google)</li></ul></td>
+        <td><ul><li class="w">Portfolio Intelligence, CitiScribe, Client 360, AskWealth CIO</li><li class="w">Citi Sky unveiled</li><li>Arc agents</li><li>$5bn plan</li></ul></td>
+        <td><ul><li class="w">Citi Sky US Citigold rollout</li><li>~90% staff usage</li></ul></td></tr>
+      <tr><td class="firm">Lloyds</td><td></td>
+        <td><ul><li>Vertex AI platform</li></ul></td>
+        <td><ul><li>Athena</li></ul></td>
+        <td><ul><li class="w">SPW buyout → Lloyds Wealth</li><li>Copilot 30k</li><li class="w">Financial Assistant announced</li></ul></td>
+        <td><ul><li>AI Academy</li><li>£50m value disclosed</li></ul></td>
+        <td><ul><li class="w">InvestAI pilot (FCA testing)</li><li>Envoy agents</li><li>M365 E7</li><li>Agentic fraud, Scam Check</li><li class="w">Financial Assistant 500k+</li></ul></td>
+        <td><ul><li class="w">Accelerate 2030: Invest AI via Lloyds Wealth</li></ul></td></tr>
+      <tr><td class="firm">NatWest</td>
+        <td><ul><li>OpenAI collaboration</li><li class="w">Digital wealth manager</li></ul></td>
+        <td><ul><li>Colleague GenAI + Copilot Chat</li><li>Chief AI Research Officer</li><li class="w">PB&amp;WM meeting summaries</li></ul></td>
+        <td><ul><li>AWS + Accenture 5-yr</li></ul></td>
+        <td></td>
+        <td><ul><li class="w">30% more RM time disclosed</li><li>Agentic Cora 25k</li></ul></td>
+        <td><ul><li>ChatGPT mortgage app</li><li>AI fintech cohort</li><li>Ethics accreditation</li></ul></td>
+        <td><ul><li>Cora 7.1m conversations</li><li>Agentic commerce principles</li></ul></td></tr>
+      <tr><td class="firm">Barclays</td><td></td>
+        <td><ul><li>Copilot to 100k</li><li>AI Innovation Hub</li></ul></td>
+        <td><ul><li class="w">PBWM call summaries</li><li>New Group CIO</li></ul></td>
+        <td><ul><li>US call summarisation live</li></ul></td>
+        <td><ul><li>8m calls summarised</li><li>Mule-hunting bots</li><li>GenAI governance</li></ul></td>
+        <td><ul><li>FCA AI Live Testing</li><li class="w">Premier Wealth Mgmt (not AI)</li><li>CommonAI stake</li></ul></td>
+        <td><ul><li>"AI is the icing on the cake"</li></ul></td></tr>
+      <tr><td class="firm">Revolut</td><td></td>
+        <td><ul><li>Assistant "shortly"</li></ul></td>
+        <td></td><td></td>
+        <td><ul><li>ElevenLabs voice agents</li><li>Full UK licence</li></ul></td>
+        <td><ul><li class="w">AIR to 13M UK</li><li>PRAGMA paper</li><li class="w">Private bank plans reported</li></ul></td>
+        <td><ul><li class="w">Revolut X MCP trading</li><li>Revolut Research</li></ul></td></tr>
+      <tr><td class="firm">J.P. Morgan</td><td></td>
+        <td><ul><li class="w">Coach AI metrics</li><li>LLM Suite award</li></ul></td>
+        <td></td>
+        <td><ul><li>Evident #1</li><li class="w">JPMPI rebrand (no AI)</li></ul></td>
+        <td></td>
+        <td><ul><li>CEO letter: Smart Cash</li></ul></td>
+        <td></td></tr>
+      <tr><td class="firm">Trading 212</td><td></td>
+        <td><ul><li class="w">AI Analysis (OpenAI)</li></ul></td>
+        <td></td><td></td>
+        <td><ul><li class="w">AgentSkills API</li></ul></td>
+        <td><ul><li class="w">AI Chatbot Analyser</li></ul></td>
+        <td></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 9. PROFILES -->
+<section id="profiles">
+  <span class="sec-num">09</span>
+  <h2>Competitor profiles</h2>
+  <p class="lede">Threat level is the threat to HSBC's wealth franchise over the next 12–24 months, judged on product overlap, client overlap and momentum.</p>
+
+  <div class="cards">
+    <article class="card base">
+      <header><div><h3>HSBC (baseline)</h3><span class="grp">WPB · GPB · Premier</span></div><span class="pill low">Baseline</span></header>
+      <p>The UK's most AI-mature bank, with a financial-crime lead and a multi-model platform. Its wealth AI is RM-only and Asia-only.</p>
+      <ul><li>Wealth Intelligence (OpenAI) for RMs in HK, SG, MY</li><li>Google Cloud RM decision assistant; Singapore AI CoE</li><li>Dynamic Risk Assessment AML</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>Evident #8 · 85% staff access · 600+ use cases</dd><dt>Watch next</dt><dd>Screening and asset-allocation modules; Evident 2026 (Oct)</dd></dl>
+    </article>
+
+    <article class="card">
+      <header><div><h3>Citi</h3><span class="grp">Citi Wealth · Citi Private Bank</span></div><span class="pill high">High threat</span></header>
+      <p>The most complete wealth AI stack in the peer set. Tools launch in North America first and then go global, and AskWealth started in Asia. Its private bank competes directly with GPB.</p>
+      <ul><li>Seven named wealth tools, from AskWealth to CitiScribe</li><li>Citi Sky: client avatar on Gemini and DeepMind</li><li>Four-layer wealth AI platform with Google and Palantir</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>~180k staff with access, ~90% using · 100k dev hrs/week</dd><dt>Watch next</dt><dd>Citi Sky outside the US; Private Bank rollouts in Asia and the UK</dd></dl>
+    </article>
+
+    <article class="card">
+      <header><div><h3>Lloyds Banking Group</h3><span class="grp">Lloyds Wealth · Scottish Widows</span></div><span class="pill high">High threat (UK)</span></header>
+      <p>The first mover on regulated AI guidance for the mass affluent, distributing through 22m app users and 5m workplace pension customers.</p>
+      <ul><li>InvestAI moving from guidance to targeted support to simplified advice</li><li>Agentic Financial Assistant (500k+)</li><li>Envoy agent platform; £1bn fraud prevented</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>£50m → £100m+ AI value · Evident #15 (+12)</dd><dt>Watch next</dt><dd>Financial Assistant for Lloyds and Halifax; InvestAI targeted-support launch</dd></dl>
+    </article>
+
+    <article class="card">
+      <header><div><h3>Revolut</h3><span class="grp">Wealth &amp; Trading · Revolut X</span></div><span class="pill high">High threat (emerging affluent)</span></header>
+      <p>AI-first distribution to 13M UK customers, a proprietary foundation model and a private bank on the way.</p>
+      <ul><li>AIR conversational assistant with investment tracking</li><li>Revolut X MCP: agents stage trades, the user confirms</li><li>PRAGMA and Revolut Research</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>70M+ users · £4.5bn revenue · 75% of queries handled by AI</dd><dt>Watch next</dt><dd>Private bank (£500k) launch; MCP extended to stocks and ISAs</dd></dl>
+    </article>
+
+    <article class="card">
+      <header><div><h3>NatWest Group / Coutts</h3><span class="grp">PB&amp;WM · Retail</span></div><span class="pill med">Medium threat</span></header>
+      <p>The most "UK firsts" (OpenAI, ChatGPT app, agentic assistant) and hard RM productivity numbers. Coutts' client AI isn't visible yet.</p>
+      <ul><li>Meeting summaries: 15 min saved, 30% more RM time</li><li>Agentic Cora on OpenAI models</li><li>Evelyn Partners: £130.6bn AUMA</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>35% of code AI-written · 70k hours saved</dd><dt>Watch next</dt><dd>AI on the Dynamics CRM; Evelyn integration; voice AI</dd></dl>
+    </article>
+
+    <article class="card">
+      <header><div><h3>J.P. Morgan / JPMPI</h3><span class="grp">Personal Investing (ex-Nutmeg) · Group AWM</span></div><span class="pill med">Medium threat</span></header>
+      <p>No AI in the UK today, but the parent is the global #1 on AI. Coach AI or LLM Suite could reach JPMPI's RMs with little warning.</p>
+      <ul><li>Rules-based robo plus RMs for £250k+</li><li>Coach AI for ~4,000 US advisers</li><li>Chase UK distribution</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>£8.75bn AUM, 270k clients (UK) · ~$1.5bn group AI value</dd><dt>Watch next</dt><dd>DIY platform; any Coach AI deployment in the UK</dd></dl>
+    </article>
+
+    <article class="card">
+      <header><div><h3>Barclays</h3><span class="grp">PBWM · Premier · Direct Investing</span></div><span class="pill low">Low–medium threat</span></header>
+      <p>Enterprise AI is used for cost. The wealth play competes on price (custody fees to zero) and a hybrid model, not on AI.</p>
+      <ul><li>100k Copilot seats; GitLab Duo</li><li>PBWM call summarisation</li><li>Premier Wealth Management (£150k+)</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>Evident #23 · 250+ AI tools</dd><dt>Watch next</dt><dd>Relaunched app across PB&amp;WM ("watch that space")</dd></dl>
+    </article>
+
+    <article class="card">
+      <header><div><h3>Trading 212</h3><span class="grp">Self-directed investing</span></div><span class="pill low">Low–medium threat</span></header>
+      <p>A fast-growing execution-only broker whose AI is limited to explaining, not advising. Its open agent API is ahead of any bank's.</p>
+      <ul><li>AI Analysis and Chatbot (OpenAI)</li><li>AgentSkills: agents can place trades</li><li>Pies and AutoInvest are rules-based</li></ul>
+      <dl class="kv"><dt>Key numbers</dt><dd>4.5m accounts · £25bn+ AUA (May 2025)</dd><dt>Watch next</dt><dd>Chatbot quality fixes; SIPP and AI combinations</dd></dl>
+    </article>
+  </div>
+</section>
+
+<!-- 10. GAPS -->
+<section id="gaps">
+  <span class="sec-num">10</span>
+  <h2>Gap analysis</h2>
+  <div class="gap3">
+    <div class="c">
+      <h4>Close</h4>
+      <ul>
+        <li>Client-facing wealth AI with an RM hand-off (vs Citi Sky, InvestAI, AIR)</li>
+        <li>RM meeting capture and conduct monitoring (vs CitiScribe, NatWest, Aveni at Lloyds)</li>
+        <li>Any wealth AI in the UK market</li>
+        <li>Quantified AI value and usage disclosure</li>
+      </ul>
+    </div>
+    <div class="d">
+      <h4>Defend</h4>
+      <ul>
+        <li>Financial-crime AI lead (DRA); extend it to scam protection for wealth clients</li>
+        <li>Top-UK Evident rank. Lloyds climbed 12 places in a year</li>
+        <li>Multi-model optionality (self-hosted Mistral for sensitive wealth data)</li>
+        <li>Wealth Intelligence position in Asia against Citi AskWealth</li>
+      </ul>
+    </div>
+    <div class="l">
+      <h4>Leapfrog</h4>
+      <ul>
+        <li>Cross-border wealth AI across HK, SG and the UK that no domestic peer can match</li>
+        <li>A "trust threshold" hybrid backed by our own data on 10,000 investors</li>
+        <li>A clear position on agent access (MCP/API) before clients bring their own agents</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="split">
+    <div>
+      <h4>UK lens</h4>
+      <p>Peers are moving through FCA channels: targeted support (from April 2026) and AI Live Testing cohort 2 (Lloyds, Barclays, NatWest; results in Q1 2027). HSBC UK has no disclosed wealth AI. Lloyds reports that HSBC is studying AI for customers with £15k–£37.5k in liquid assets (single secondary source).</p>
+    </div>
+    <div>
+      <h4>Asia lens</h4>
+      <p>Our wealth AI is Asia-first, but the direct Asian peers (DBS, UBS, Standard Chartered) are outside this benchmark. Citi, the only Asian peer included, launched AskWealth there first. An Asia-peer extension is needed before we claim leadership in Asia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. RECOMMENDATIONS -->
+<section id="recs">
+  <span class="sec-num">11</span>
+  <h2>Recommendations and watchlist</h2>
+  <p class="lede">Six actions for the next 6–12 months, in priority order.</p>
+  <ol class="recs">
+    <li>
+      <h4>Instrument Wealth Intelligence and publish a baseline</h4>
+      <p>Track active RMs, queries, prep time saved and client-facing time, following NatWest's 15-minute and 30% figures. Without this we can't size the business case for the next modules.</p>
+      <div class="tags"><span>Horizon: 0–3 months</span><span>Dimension A, E</span></div>
+    </li>
+    <li>
+      <h4>Add meeting capture and conduct monitoring to the RM toolkit</h4>
+      <p>A combined note-taking and suitability-flagging module (CitiScribe plus Aveni-style monitoring), built on the Google decision-assistant work and deployed first in HK and SG.</p>
+      <div class="tags"><span>Horizon: 3–9 months</span><span>Dimension A, D</span></div>
+    </li>
+    <li>
+      <h4>Pilot a client-facing wealth assistant with a built-in RM hand-off</h4>
+      <p>Start with information only (portfolio explanations, CIO views), then add guidance. Use the Gemini Enterprise Agent Platform Citi used, with Trust Threshold findings as design principles. Premier Asia first, with HKMA sandbox results as the entry point.</p>
+      <div class="tags"><span>Horizon: 6–12 months</span><span>Dimension B</span></div>
+    </li>
+    <li>
+      <h4>Set a UK targeted-support AI proposition, and consider FCA AI Live Testing</h4>
+      <p>Lloyds has a head start of about 12 months. Decide whether HSBC UK Premier competes on AI guidance or on the hybrid RM model, and apply to the next testing cohort if it competes.</p>
+      <div class="tags"><span>Horizon: decision in 3 months</span><span>Dimension B, E</span></div>
+    </li>
+    <li>
+      <h4>Define HSBC's stance on agent access</h4>
+      <p>Revolut X, Trading 212 and NatWest (ChatGPT) already let external AI agents access their services. Agree a policy on MCP/API access for wealth clients (read-only, staged orders, or none) before client demand forces one.</p>
+      <div class="tags"><span>Horizon: 3–6 months</span><span>Dimension B, E</span></div>
+    </li>
+    <li>
+      <h4>Report AI value in pounds and dollars</h4>
+      <p>Adopt Lloyds-style P&amp;L attribution for AI across WPB and GPB, tied to the $100m threshold in the Google partnership. Evident scores transparency, and our #8 rank depends partly on it.</p>
+      <div class="tags"><span>Horizon: FY2026 results</span><span>Dimension E</span></div>
+    </li>
+  </ol>
+
+  <h3>Watchlist</h3>
+  <div class="tbl"><table class="w-wide">
+    <thead><tr><th>Signal</th><th>Why it matters</th><th>Expected</th></tr></thead>
+    <tbody>
+      <tr><td>Evident AI Index 2026</td><td>Tests whether we keep the top UK position against Lloyds' climb</td><td>Oct 2026</td></tr>
+      <tr><td>Citi Sky outside the US</td><td>Would put a client AI avatar in front of our Asian private-bank clients</td><td>"Broader introduction to follow"</td></tr>
+      <tr><td>Lloyds InvestAI under targeted support; Financial Assistant for all brands</td><td>Sets the UK standard for AI guidance for the mass affluent</td><td>Q4 2026</td></tr>
+      <tr><td>Revolut private bank launch</td><td>Brings AI-first UX into the £500k+ segment</td><td>Reported for summer 2026; not yet confirmed</td></tr>
+      <tr><td>FCA AI Live Testing cohort 2 results</td><td>Regulatory template for AI in advice and guidance</td><td>Q1 2027</td></tr>
+      <tr><td>JPMPI DIY platform, or Coach AI in the UK</td><td>Group AI capability reaching UK retail wealth</td><td>2026–27</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- APPENDIX -->
+<section id="appendix">
+  <span class="sec-num">A</span>
+  <h2>Appendix</h2>
+
+  <details>
+    <summary>Key sources by firm</summary>
+    <div>
+      <ul>
+        <li><b>HSBC:</b> <a href="https://www.privatebanking.hsbc.com/media-releases-and-news/hsbc-deploys-wealth-intelligence/">Wealth Intelligence release</a> · <a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">Google Cloud partnership</a> · <a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/the-trust-threshold-ai-makes-investors-bolder-but-they-want-human-judgement-to-make-decisions">Trust Threshold</a> · <a href="https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime">Dynamic Risk Assessment</a> · <a href="https://evidentinsights.com/bankingbrief/heres-the-2025-evident-ai-index/">Evident AI Index 2025</a></li>
+        <li><b>Citi:</b> <a href="https://www.citigroup.com/global/news/press-release/2025/citi-wealth-launches-advisor-insights-askwealth">AskWealth / Advisor Insights</a> · <a href="https://www.citigroup.com/global/news/press-release/2026/citi-wealth-deploys-ai-powered-technology-to-enhance-client-experience">Apr 2026 wealth tools</a> · <a href="https://www.citigroup.com/global/news/press-release/2026/citi-wealth-unveils-citi-sky-ai-powered-member-google-cloud-deepmind-technologies">Citi Sky</a> · <a href="https://www.citigroup.com/rcs/citigpa/storage/public/investor-day/citi-ID26-wealth-presentation-transcript.pdf">Investor Day wealth transcript</a></li>
+        <li><b>Lloyds:</b> <a href="https://www.lloydsbankinggroup.com/media/press-releases/2026/lloyds-banking-group/ai-driven-benefits-2026.html">£50m AI value</a> · <a href="https://www.lloydsbankinggroup.com/media/press-releases/2025/lloyds-banking-group-2025/lloyds-banking-group-unveils-uks-first-ai-powered-financial-assistant.html">Financial Assistant</a> · <a href="https://www.financialplanningtoday.co.uk/news/lloyds-wealth-launches-ai-simplified-advice-service">Invest AI / Lloyds Wealth</a> · <a href="https://www.lloydsbankinggroup.com/media/press-releases/2026/lloyds-banking-group/lloyds-banking-group-deploys-agentic-ai-to-strengthen-real-time-.html">Agentic fraud</a></li>
+        <li><b>NatWest:</b> <a href="https://www.natwestgroup.com/news-and-insights/latest-stories/ai-and-data/2026/feb/being-a-trusted-partner-for-tomorrows-banking-through-technology.html">Feb 2026 AI update</a> · <a href="https://www.investors.rbs.com/~/media/Files/R/RBS-IR-V2/documents/natwest-group-private-banking-wealth-management-spotlight-transcript-260625.pdf">PB&amp;WM spotlight</a> · <a href="https://www.natwestgroup.com/news-and-insights/news-room/press-releases/ai-and-data/2025/mar/natwest-open-ai-collaborate-to-accelerate-cutting-edge-ai-transf.html">OpenAI collaboration</a> · <a href="https://www.natwestgroup.com/news-and-insights/latest-stories/financial-reporting/2026/jul/h1-2026-natwest-group-results.html">H1 2026 results</a></li>
+        <li><b>Barclays:</b> <a href="https://ukstories.microsoft.com/features/barclays-rolls-out-microsoft-365-copilot-to-100000-colleagues/">Copilot rollout</a> · <a href="https://home.barclays/insights/2025/07/scaling-AI-at-Barclays/">AI at Barclays</a> · <a href="https://home.barclays/news/press-releases/20260/04/barclays-supports-investors-with-launch-of-new-wealth-offering--0/">Premier Wealth Management</a></li>
+        <li><b>Revolut:</b> <a href="https://www.fintechweekly.com/news/revolut-air-ai-assistant-uk-customers-launch-2026">AIR launch</a> · <a href="https://www.revolut.com/blog/post/revolut-x-connects-with-your-ai-assistant-uk/">Revolut X × AI assistants</a> · <a href="https://arxiv.org/abs/2604.08649">PRAGMA paper</a> · <a href="https://www.nvidia.com/en-us/case-studies/revolut/">NVIDIA case study</a></li>
+        <li><b>J.P. Morgan / JPMPI:</b> <a href="https://www.personalinvesting.jpmorgan.com/insights/introducing-jpmorgan-personal-investing">JPMPI launch</a> · <a href="https://www.investing.com/news/stock-market-news/jpmorgan-says-ai-helped-boost-sales-add-clients-in-market-turmoil-4022588">Coach AI (Reuters)</a> · <a href="https://www.jpmorganchase.com/about/technology/blog/jpmc-evident-25">Evident #1</a></li>
+        <li><b>Trading 212:</b> <a href="https://helpcentre.trading212.com/hc/en-us/articles/28908866191005-AI-Analysis-on-Trading-212">AI Analysis</a> · <a href="https://helpcentre.trading212.com/hc/en-us/articles/34746261653277-The-AI-Chatbot-Analyser">AI Chatbot Analyser</a> · <a href="https://community.trading212.com/t/trading-212s-api-can-now-integrate-with-ai/90278">API AI integration</a></li>
+      </ul>
+      <p class="small muted" style="margin-top:10px">The full source trail is in <code>research_notes/Competitor AI products and achievements/</code>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Open gaps and unverified claims</summary>
+    <div>
+      <ul>
+        <li>The 2026 Evident AI Index isn't out yet; Citi's 2025 overall rank wasn't confirmed.</li>
+        <li>No usage metrics are published for Wealth Intelligence, Citi's wealth tools, Citi Sky, Revolut AIR or InvestAI.</li>
+        <li>Citi Sky's actual go-live and client count aren't confirmed; neither is completion of Portfolio Intelligence's global Private Bank rollout.</li>
+        <li>The Revolut private bank launch isn't confirmed as of September 2026.</li>
+        <li>Lloyds InvestAI's 8,000 conversations and the claim that HSBC is studying the £15k–£37.5k segment each come from a single secondary source.</li>
+        <li>Barclays' "250+ AI tools" and its credit-risk AI rest on a single secondary source (Diginomica).</li>
+        <li>Trading 212's Doxis/Klippa onboarding OCR comes from a single vendor case study.</li>
+        <li>HSBC Ventures deal amounts (Poolside, Prophecy, Classiq, Nova Credit) aren't confirmed from primary sources.</li>
+        <li>Asian peers (DBS, UBS, Standard Chartered) and Morgan Stanley aren't covered.</li>
+      </ul>
+    </div>
+  </details>
+
+  <h3>Glossary</h3>
+  <dl class="gloss">
+    <dt>Agentic AI</dt><dd>AI that plans and carries out multi-step tasks with tools, rather than only answering questions.</dd>
+    <dt>Evident AI Index</dt><dd>An annual ranking of 50 banks on AI maturity across talent, innovation, leadership and transparency.</dd>
+    <dt>FCA AI Live Testing</dt><dd>The FCA programme for testing AI with real consumers under supervision. Cohort 2 runs Apr–Dec 2026.</dd>
+    <dt>Targeted support</dt><dd>A new FCA regime (PS25/22, from April 2026) that lets firms give ready-made suggestions to groups of consumers without full advice.</dd>
+    <dt>MCP</dt><dd>Model Context Protocol, a standard way for AI assistants to connect to external tools and data such as a trading API.</dd>
+    <dt>RAG</dt><dd>Retrieval-augmented generation: grounding an LLM's answers in approved internal documents.</dd>
+    <dt>DRA</dt><dd>Dynamic Risk Assessment, HSBC's AML model built with Google Cloud AML AI.</dd>
+    <dt>CIO</dt><dd>Chief Investment Office: the house view and research function in a wealth business.</dd>
+  </dl>
+
+  <footer class="end">Compiled from public sources to 23 September 2026. Scores are analytical judgements for internal discussion and are not an official HSBC position.</footer>
+</section>
+
+    </main>
+  </div>
+</div>
